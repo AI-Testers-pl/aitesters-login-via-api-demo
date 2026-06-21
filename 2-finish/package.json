@@ -1,0 +1,32 @@
+{
+  "name": "aitesters-login-via-api-demo",
+  "version": "1.0.0",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "format": "biome format --write",
+    "check": "biome check --write --unsafe",
+    "check:ci": "biome check --error-on-warnings",
+    "tests:ui": "playwright test --ui",
+    "prepare": "husky"
+  },
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@biomejs/biome": "2.5.0",
+    "@faker-js/faker": "10.5.0",
+    "@playwright/test": "1.61.0",
+    "@types/node": "25.9.3",
+    "dotenv": "17.4.2",
+    "husky": "9.1.7",
+    "lint-staged": "16.4.0",
+    "typescript": "6.0.3"
+  },
+  "engines": {
+    "node": "24.15.0",
+    "npm": "11.12.1"
+  },
+  "lint-staged": {
+    "*.ts": "biome check --write --diagnostic-level=error --no-errors-on-unmatched",
+    "*.{json,md}": "biome format --write --no-errors-on-unmatched"
+  }
+}

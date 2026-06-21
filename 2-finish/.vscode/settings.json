@@ -1,0 +1,13 @@
+{
+  "git.confirmSync": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "One Dark Pro",
+  "explorer.confirmDelete": false,
+  "files.autoSave": "afterDelay",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.biome": "explicit"
+  },
+  "files.autoSaveDelay": 500,
+  "playwright.reuseBrowser": true,
+  "chat.mcp.gallery.enabled": true
+}

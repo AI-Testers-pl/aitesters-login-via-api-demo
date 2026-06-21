@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "ms-playwright.playwright",
+    "anthropic.claude-code",
+    "biomejs.biome",
+    "pkief.material-icon-theme",
+    "zhuangtongfa.material-theme"
+  ]
+}

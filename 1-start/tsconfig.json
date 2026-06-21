@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "module": "es2022",
+    "target": "es2024",
+    "types": ["node"],
+    "moduleResolution": "bundler",
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+    "paths": {
+      "@enums/*": ["./src/enums/*"],
+      "@fixtures/*": ["./src/fixtures/*"],
+      "@helpers/*": ["./src/helpers/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@tests/*": ["./src/tests/*"],
+      "@typings/*": ["./src/types/*"]
+    }
+  },
+  "include": ["src/", "playwright.config.ts"],
+  "exclude": ["node_modules/"]
+}

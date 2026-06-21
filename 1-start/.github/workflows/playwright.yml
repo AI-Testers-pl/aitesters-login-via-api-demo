@@ -1,0 +1,61 @@
+name: Playwright Tests
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  quality-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint and format check
+        run: npm run check:ci
+
+  test:
+    runs-on: ubuntu-latest
+    needs: quality-gate
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run Playwright tests
+        run: npx playwright test
+        env:
+          BASE_URL: ${{ secrets.BASE_URL }}
+          DEMO_USER_CLIENT_USERNAME: ${{ secrets.DEMO_USER_CLIENT_USERNAME }}
+          DEMO_USER_CLIENT_PASSWORD: ${{ secrets.DEMO_USER_CLIENT_PASSWORD }}
+          DEMO_USER_CLIENT_DISPLAY_NAME: ${{ secrets.DEMO_USER_CLIENT_DISPLAY_NAME }}
+          DEMO_USER_ADMIN_USERNAME: ${{ secrets.DEMO_USER_ADMIN_USERNAME }}
+          DEMO_USER_ADMIN_PASSWORD: ${{ secrets.DEMO_USER_ADMIN_PASSWORD }}
+          DEMO_USER_ADMIN_DISPLAY_NAME: ${{ secrets.DEMO_USER_ADMIN_DISPLAY_NAME }}
+
+      - name: Upload HTML report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
