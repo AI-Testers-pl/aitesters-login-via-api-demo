@@ -10,16 +10,16 @@ The materials are split into two folders matching the stages of our work:
 
 | Folder       | Description                                                                          |
 |--------------|--------------------------------------------------------------------------------------|
-| `1-start/`   | **Starting point** - project state at the beginning of the webinar (UI login).       |
-| `2-finish/`  | **Finished work** - final result after switching to API login + **bonus**.           |
+| `1-start`   | **Starting point** - project state at the beginning of the webinar (UI login).       |
+| `2-finish`  | **Finished work** - final result after switching to API login + **bonus**.           |
 
-### `./1-start` - starting point
+### `1-start` - starting point
 
 The project in its initial state, where we begin the webinar. Login happens through the UI
 form. The file [`1-start/PROMPT.md`](1-start/PROMPT.md) contains the prompt we start the work
 from.
 
-### `./2-finish` - final result + bonus
+### `2-finish` - final result + bonus
 
 The project after the webinar - login has been switched to API-based authentication (the `loginViaApi` fixture, and a `skipAutoLogin` flag for tests targeting the login form
 itself).
